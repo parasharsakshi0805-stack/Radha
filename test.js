@@ -86,3 +86,13 @@ else{
     console.log("TC05:Password validation : FAIL");
     passed = false;
 }
+//T10: Registration successful
+if(passed){
+    console.log("TC10 :Registration successful :PASS");
+    console.log("\n Build Succes");
+}
+else{
+    console.log("TC10 :Registration successful : FAIL");
+    console.log("\n Build Failed");
+    passed = false;
+}
