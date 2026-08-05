@@ -36,3 +36,9 @@ else{
     console.log("TC04:student.json exists:FAIL");
     passed = false;
 }
+
+const students = JSON.parse(
+    fs.readFileSync("data/students.json")
+);
+
+const student = student[0];
