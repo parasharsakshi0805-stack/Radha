@@ -37,11 +37,7 @@ else{
     passed = false;
 }
 
-const students = JSON.parse(
-    fs.readFileSync("data/students.json")
-);
 
-const student = student[0];
 
 //TC05: Name validation
 if(student.name.trim()!==""){
