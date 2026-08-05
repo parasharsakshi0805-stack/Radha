@@ -37,7 +37,8 @@ else{
     passed = false;
 }
 
-
+const data = JSON.parse(fs.readFileSync("student.json", "utf8"));
+const student = data.students[0];
 
 //TC05: Name validation
 if(student.name.trim()!==""){
