@@ -42,3 +42,47 @@ const students = JSON.parse(
 );
 
 const student = student[0];
+
+//TC05: Name validation
+if(student.name.trim()!==""){
+    console.log("TC05 :Name validation :PASS");
+}
+else{
+    console.log("TC05:Name validation : FAIL");
+    passed = false;
+}
+//TC05: Name validation
+if(student.email.includes("@")){
+    console.log("TC05 : Email validation :PASS");
+}
+else{
+    console.log("TC05: Email validation : FAIL");
+    passed = false;
+}
+
+//TC05: Name validation
+if(student.mobile.length===10){
+    console.log("TC07 : Mobile validation :PASS");
+}
+else{
+    console.log("TC07: Mobile validation : FAIL");
+    passed = false;
+}
+
+//TC08: Branch validation
+if(student.branch!==""){
+    console.log("TC08 : Branch validation :PASS");
+}
+else{
+    console.log("TC05: Branch validation : FAIL");
+    passed = false;
+}
+
+//TC09: password validation
+if(student.password.length>=6){
+    console.log("TC09 :Password validation :PASS");
+}
+else{
+    console.log("TC05:Password validation : FAIL");
+    passed = false;
+}
