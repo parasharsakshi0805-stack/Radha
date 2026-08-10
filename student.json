@@ -5,7 +5,9 @@
       "email": "sakky@gmail.com",
       "mobile": "9876543210",
       "course": "CSE",
-      "gender": "Female"
+      "gender": "Female",
+      "branch":"CSE",
+      "password":"123456"
     }
     
   ]
