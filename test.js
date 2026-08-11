@@ -5,7 +5,7 @@ let passed = true;
 console.log("Registration Test\n");
 
 // TC01: Check new.html
-if (fs.existsSync("hello.html")) {
+if (fs.existsSync("new.html")) {
     console.log("TC01: new.html exists: PASS");
 } else {
     console.log("TC01: new.html exists: FAIL");
