@@ -1,25 +1,32 @@
+
 const express = require("express");
 const fs = require("fs");
+const path = require("path");
 
 const app = express();
 
 app.use(express.json());
-app.use(express.static("."));
+app.use(express.static(__dirname));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "new.html"));
+});
 
 app.post("/register", (req, res) => {
-
     try {
-
         const student = req.body;
 
         const data = JSON.parse(
-            fs.readFileSync("student.json", "utf8")
+            fs.readFileSync(
+                path.join(__dirname, "student.json"),
+                "utf8"
+            )
         );
 
         data.students.push(student);
 
         fs.writeFileSync(
-            "student.json",
+            path.join(__dirname, "student.json"),
             JSON.stringify(data, null, 2)
         );
 
@@ -28,7 +35,6 @@ app.post("/register", (req, res) => {
         });
 
     } catch (error) {
-
         console.error(error);
 
         res.status(500).json({
@@ -37,6 +43,9 @@ app.post("/register", (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log("Server running at http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on port ${PORT}`);
 });
+

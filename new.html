@@ -23,7 +23,7 @@
         <input type="tel" id="phone" required>
 
         <label>Course</label>
-        <select id="course">
+        <select id="course" required>
             <option value="">Select Course</option>
             <option>CSE</option>
             <option>IT</option>
@@ -33,20 +33,26 @@
 
         <label>Gender</label>
         <div class="gender">
-            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Male" required> Male
             <input type="radio" name="gender" value="Female"> Female
         </div>
 
         <label>Password</label>
-    <input type="password" id="password" required>
+        <input type="password" id="password" required>
 
-    
+        <label>Confirm Password</label>
+        <input type="password" id="confirmPassword" required>
 
         <button type="submit">Register</button>
 
     </form>
 
     <p id="message"></p>
+
+    <p>
+        Already have an account?
+        <a href="login.html">Login</a>
+    </p>
 </div>
 
 <script src="new.js"></script>

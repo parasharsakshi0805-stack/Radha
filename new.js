@@ -1,53 +1,76 @@
-document.getElementById("registrationForm").addEventListener("submit", async function(e) {
+let registrationForm = document.getElementById("registrationForm");
 
-    e.preventDefault();
+if (registrationForm) {
 
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let phone = document.getElementById("phone").value;
-    let course = document.getElementById("course").value;
-    let password = document.getElementById("password").value;
+    registrationForm.addEventListener("submit", async function(e) {
 
-    let gender = "";
-    let genders = document.getElementsByName("gender");
+        e.preventDefault();
 
-    for (let g of genders) {
-        if (g.checked) {
-            gender = g.value;
-        }
-    }
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone").value;
+        let course = document.getElementById("course").value;
+        let password = document.getElementById("password").value;
 
-    let student = {
-        name: name,
-        email: email,
-        mobile: phone,
-        branch: course,
-        gender: gender,
-        password: password
-    };
+        let gender = "";
+        let genders = document.getElementsByName("gender");
 
-    try {
-
-        const response = await fetch("/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(student)
-        });
-
-        const result = await response.json();
-
-        document.getElementById("message").innerHTML = result.message;
-
-        if (response.ok) {
-            document.getElementById("registrationForm").reset();
+        for (let g of genders) {
+            if (g.checked) {
+                gender = g.value;
+            }
         }
 
-    } catch (error) {
-        console.error(error);
+        let student = {
+            name: name,
+            email: email,
+            mobile: phone,
+            branch: course,
+            gender: gender,
+            password: password
+        };
 
-        document.getElementById("message").innerHTML =
-            "Registration failed!";
-    }
-});
+        try {
+
+            const response = await fetch("/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(student)
+            });
+
+            const result = await response.json();
+
+            document.getElementById("message").innerHTML = result.message;
+
+            if (response.ok) {
+                document.getElementById("registrationForm").reset();
+            }
+
+        } catch (error) {
+
+            console.error(error);
+
+            document.getElementById("message").innerHTML =
+                "Registration failed!";
+        }
+
+    });
+
+}
+
+
+let loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+
+    loginForm.addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        window.location.href = "./welcome.html";
+
+    });
+
+}
